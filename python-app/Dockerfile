@@ -4,4 +4,4 @@ WORKDIR /python-app
 
 COPY . /python-app
 
-CMD [ "python", "bmi.js" ]
+CMD [ "python", "bmi.py" ]
