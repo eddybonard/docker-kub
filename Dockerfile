@@ -1,7 +1,20 @@
-FROM python
+FROM node:14
+
 
 WORKDIR /app
 
-COPY . /app
+COPY package.json /app
 
-CMD [ "python", "rng.py" ]
+RUN npm install
+
+COPY . .
+
+ARG DEFAULT_PORT=80
+
+ENV PORT $DEFAULT_PORT
+
+EXPOSE $PORT
+
+# VOLUME [ "/app/feedback" ]
+
+CMD [ "npm", "start" ]
