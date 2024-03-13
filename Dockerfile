@@ -1,7 +1,11 @@
-FROM python
+FROM node
 
 WORKDIR /app
 
-COPY . /app
+COPY package.json .
 
-CMD [ "python", "rng.py" ]
+RUN npm install
+
+COPY . .
+
+CMD ["node", "app.js"]
